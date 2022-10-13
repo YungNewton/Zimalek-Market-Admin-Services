@@ -35,7 +35,7 @@ public class JWTFilter extends GenericFilterBean {
    @Override
    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
       HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-      String jwt = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJva2l0b29naGVuZXRlZ2FAZ21haWwuY29tIiwiYXV0aCI6IlJPTEVfQlJBTkRfU0VMTEVSLFJPTEVfVVNFUiIsImV4cCI6MTY2NTcyNjU1Nn0.teEZaUSBnrRiySUcu9utrvO88kWg9TcYelfgqfhzD04fY0xPJkk1VLVJUNJY6vWcoigzTx1UnqGCqlG_ARD8jw";
+      String jwt = resolveToken(httpServletRequest);
       String requestURI = httpServletRequest.getRequestURI();
 
       if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
