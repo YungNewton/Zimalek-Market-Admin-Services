@@ -6,4 +6,4 @@ services:
     container_name: market-admin-service
     entrypoint: "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
     ports:
-      - 8080:3000
+      - 8081:3002
