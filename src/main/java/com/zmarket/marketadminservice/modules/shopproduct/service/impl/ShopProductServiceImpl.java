@@ -95,7 +95,7 @@ public class ShopProductServiceImpl implements ShopProductService {
             throw new NotFoundException("Shop does not exist");
         }
 
-        Optional<ShopProduct> productOptional = shopProductRepository.findFirstByIdAndUserId(productId, tokenProvider.getId());
+        Optional<ShopProduct> productOptional = shopProductRepository.findFirstByShopAndId(shop.get(), productId);
         if(productOptional.isEmpty()){
             throw new NotFoundException("Product does not exist");
         }
@@ -239,7 +239,7 @@ public class ShopProductServiceImpl implements ShopProductService {
 
     @Override
     public Object deleteProductById(Long productId, Long shopId) {
-        Optional<Shop> shop = shopRepository.findById(shopId);
+        Optional<Shop> shop = shopRepository.findFirstByIdAndUserId(shopId, tokenProvider.getId());
         if(shop.isEmpty()){
             throw new NotFoundException("Shop does not exist");
         }
