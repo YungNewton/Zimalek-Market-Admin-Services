@@ -62,6 +62,20 @@ public class Shop {
 
     private String logo;
 
+    private int totalOneStarRating;
+
+    private int totalTwoStarRating;
+
+    private int totalThreeStarRating;
+
+    private int totalFourStarRating;
+
+    private int totalFiveStarRating;
+
+    private int totalStarRating;
+
+    private int avgStarRating;
+
     @JsonProperty("productCount")
     public long productCount() {
         return Objects.isNull(products) ? 0 : products.size();

@@ -59,6 +59,20 @@ public class Market {
 
     private Date updatedAt;
 
+    private int totalOneStarRating;
+
+    private int totalTwoStarRating;
+
+    private int totalThreeStarRating;
+
+    private int totalFourStarRating;
+
+    private int totalFiveStarRating;
+
+    private int totalStarRating;
+
+    private int avgStarRating;
+
     @JsonProperty("shopCount")
     public long shopCount() {
         return Objects.isNull(shops) ? 0 : shops.size();

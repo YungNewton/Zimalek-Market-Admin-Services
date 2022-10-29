@@ -10,17 +10,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -61,7 +54,7 @@ public class ShopProductController {
                                                      @SortDefault(sort = "productName", direction = Sort.Direction.ASC),
                                                      @SortDefault(sort = "createdAt", direction = Sort.Direction.DESC)
                                              }) Pageable pageable){
-        return shopProductService.getAllProducts(start, end, name, color, category, price, pageable);
+        return shopProductService. getAllProducts(start, end, name, color, category, price, pageable);
     }
 
 }
